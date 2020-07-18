@@ -2,12 +2,18 @@ import random as r
 
 Comp=0
 User=0
+
+//Welcoming User
 print("Welcome To ROCK PAPER SCISSORS")
 points=int(input("How many times you would like to play against the computer "))
+
+//Loop for the points entered by the user
 for i in range(1,points+1):
     print("Enter your choice\n")
-    choice=int(input("1.Rock\n2.Paper\n3.Scissors"))
+    choice=int(input("1.Rock\n2.Paper\n3.Scissors "))
     n=r.randrange(1,4,1)
+    
+    //Code for compairing user's and Computer's input
     if n==1:
         print("Compuer Entered Rock ")
         if(choice==1):
@@ -40,6 +46,8 @@ for i in range(1,points+1):
             print("TIE No Points")
 print("Computer  YOU")
 print(Comp,"     ",User)
+
+//Compairing points and declaring the winner
 if(Comp>User):
     print('Computer wins')
 elif(User>Comp):
