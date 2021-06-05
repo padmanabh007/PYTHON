@@ -1,3 +1,2 @@
 
-
-This file consist of the different programs and solutions from HackerRank using Python
+HackerRank solutions using python
