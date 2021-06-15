@@ -38,6 +38,12 @@ for i in l :
         break
 else:
     print("Wrong input for delete ")
-        
-        
+      
+print(*l)
+
+
+#To insertat 
+pos = int(input("Where to insert : "))
+element=int(input("Enter element to be inserted : "))
+l.insert(pos-1,element)
 print(*l)
