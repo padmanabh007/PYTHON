@@ -12,7 +12,7 @@ print(*l)
 l.sort()
 print(*l)
 
-#Sorting using without using inbuilt python functions
+#Sorting without using inbuilt python functions
 for i in range(len(l)-1):
     for j in range(i,len(l)-1):
         if l[j]>l[j+1] :
