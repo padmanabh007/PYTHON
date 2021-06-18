@@ -51,7 +51,30 @@ class singlyLl:
             while itr.link!=None:
                 itr=itr.link
             itr.link=node
+            
+            
+    #To insert using values
+    def insert_use_values(self,value) :
+        node=Node(value)
+        if self.head is None:
+            head=Node
+        elif self.head.data > value :
+            node.link=self.head
+            self.head=node
+        else :
+            itr=self.head
+            while itr.link is not None:
+                prev=itr
+                itr=itr.link
+                if itr.data > value :
+                    node.link=itr
+                    prev.link=node
+                    break  
+            else:
+                itr.link=node
 
+                
+                
     #Delete at the beginning 
     def delete_at_beg(self) :
         if self.head is None:
@@ -121,17 +144,4 @@ if __name__ == '__main__':
     l.printll()
     l.delete_at_end()
     l.printll()
-
-
-
-
-
-
-
-
-
-
-
-
-    
-       
+   
