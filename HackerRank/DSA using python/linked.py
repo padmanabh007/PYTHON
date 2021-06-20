@@ -15,7 +15,7 @@ class singlyLl:
         self.head=None
 
 
-    #Inserting at the beginning of the linkedlist
+    #Inserting at the beginning
     def insert_at_beg(self,data):
         node=Node(data)
         node.link=self.head
@@ -36,11 +36,14 @@ class singlyLl:
                     itr.link=node
                     break
                 pos+=1
+                prev=itr
                 itr=itr.link
-            else:
-                itr.link=node
+            else :
+                node.link=itr
+                prev.link=node
+
             
-    #Insert at end of a linked list
+    #Insert at end 
     def insert_at_end(self,data):
         node=Node(data)
         if self.head == None:
@@ -51,13 +54,13 @@ class singlyLl:
             while itr.link!=None:
                 itr=itr.link
             itr.link=node
-            
-            
-    #To insert using values
+
+
+    #To insert using values best works on a sorted linked list
     def insert_use_values(self,value) :
         node=Node(value)
         if self.head is None:
-            head=Node
+           self.head=Node
         elif self.head.data > value :
             node.link=self.head
             self.head=node
@@ -73,9 +76,9 @@ class singlyLl:
             else:
                 itr.link=node
 
-                
-                
-    #Delete at the beginning 
+
+
+    #Delete from beginning 
     def delete_at_beg(self) :
         if self.head is None:
             print('No elements to delete ')
@@ -84,7 +87,7 @@ class singlyLl:
             self.head=itr.link
             itr.link=None
     
-    #Delete from a position
+    #Delete from position
     def delete_at_pos(self,pos) :
         if self.head is None:
             print('No elements to delete ')
@@ -102,7 +105,7 @@ class singlyLl:
             else :
                 prev.link=None
 
-    #Delete at the end
+    #Delete from end
     def delete_at_end(self):
         if self.head is None:
             print('No elements to delete ')
@@ -113,12 +116,68 @@ class singlyLl:
                 itr=itr.link
             prev.link=None
 
+    #Delete using values
+    def delete_use_values(self,val) :
+        if self.head is None:
+            print('Linked list is empty ')
+        elif self.head.data == val :
+            itr=self.head
+            self.head=itr.link
+            itr.link=None
+        else:
+            itr=self.head
+            while itr.link is not None :
+                prev=itr
+                itr=itr.link
+                if itr.data == val :
+                    prev.link=itr.link
+                    itr.link=None
+                    break
+            else:
+                prev.link=None
     
+    #Sorting
+    def sort_ll(self):
+        if self.head is None:
+            print('Linked list is empty')
+        else:
+            l=[]
+            itr=self.head
+            while itr:
+                l.append(itr.data)
+                itr=itr.link
+            
+            l.sort()
+            itr=self.head
+            while itr:
+                itr.data=l.pop(0)
+                itr=itr.link
+
+
+    
+    #Reverse a linked list
+    def reverse(self):
+        if self.head == None:
+            print(self.head.data)
+            print('No elements in the linked list')
+        else :
+            itr=self.head
+            prev=None
+            nextnode=itr
+            while nextnode:
+                nextnode=itr.link
+                itr.link=prev
+                prev=itr
+                itr=nextnode
+        self.head=prev
+
+
+                
 
     #Printing the linkedlist values
     def printll(self) :
         if self.head==None :
-            print('No elemnts in the linked list ')
+            print('No elements in the linked list ')
             return
         else :
             itr=self.head
@@ -130,18 +189,19 @@ class singlyLl:
 #Main function
 if __name__ == '__main__':
     l=singlyLl()
-    l.insert_at_beg(5)
     l.insert_at_beg(2)
-    l.insert_at_beg(3)
-    l.printll()
+    l.insert_at_beg(5)
+    l.insert_at_beg(7)
     l.insert_at_end(10)
+    l.insert_at_pos(4,4)
+    l.insert_use_values(8)
     l.printll()
-    l.insert_at_pos(12,2)
+    l.sort_ll()
     l.printll()
     l.delete_at_beg()
-    l.printll()
     l.delete_at_pos(2)
-    l.printll()
     l.delete_at_end()
+    l.delete_use_values(5)
     l.printll()
-   
+    l.reverse()
+    l.printll()
