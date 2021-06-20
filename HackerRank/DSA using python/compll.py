@@ -1,3 +1,6 @@
+
+#Function to compare two linked list
+
 def compare_lists(llist1, llist2):
     itr1,itr2=llist1,llist2
     c1,c2=0,0
