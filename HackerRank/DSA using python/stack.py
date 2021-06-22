@@ -1,3 +1,5 @@
+
+
 #Stack using array
 
 l=[]
@@ -23,10 +25,13 @@ class Node :
         self.next=None
 
 class linkedlist:
+    
+    #Declaring top and head node
     def __init__(self):
         self.top=None
         self.head=None
         
+    #To push to the stack
     def push(self,data) :
         node=Node(data)
         if self.top is None:
@@ -36,6 +41,7 @@ class linkedlist:
             self.top.next=node
             self.top=self.top.next
 
+    #To pop from the stack
     def pop(self):
         if self.top is None:
             print('Empty stack ')
@@ -47,7 +53,7 @@ class linkedlist:
             self.top=prev
             self.top.next=None
 
-
+    #To print the stack
     def printstack(self) :
         if self.head is None:
             print('Empty stack')
