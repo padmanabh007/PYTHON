@@ -1,2 +1,4 @@
 # PYTHON
-Python projects consist of simple projects on pyton as well as diffetent libraries that used in various projects
+Consist of simple python programs,
+DSA using python,
+Familization of different python libraries
